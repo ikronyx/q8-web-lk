@@ -1423,7 +1423,7 @@ section {
     grid-template-columns: 1.05fr 0.95fr;
   }
   .leaders-grid {
-    grid-template-columns: 1.2fr 0.9fr 0.9fr;
+    grid-template-columns: 0.9fr 0.9fr 0.9fr;
   }
   .leader-feature {
     min-height: 520px;
