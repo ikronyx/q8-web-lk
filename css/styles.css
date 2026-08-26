@@ -908,7 +908,7 @@ section {
 .commodity-card p {
   margin: 0;
   color: #728096;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .card-line {
@@ -1180,7 +1180,7 @@ section {
 .hub-card p {
   margin: 0 0 16px;
   color: rgba(255, 255, 255, 0.52);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .hub-card a {
