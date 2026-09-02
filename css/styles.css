@@ -207,31 +207,33 @@ button {
   min-width: max-content;
 }
 
-.brand__mark {
-  display: grid;
-  width: 42px;
-  aspect-ratio: 1;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--green);
-  box-shadow: inset 0 0 0 1px rgba(5, 120, 60, 0.09);
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.brand__mark svg {
-  width: 30px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2.1;
+.brand__logo {
+  display: block;
+
+  width: auto;
+  height: 42px;
+
+  object-fit: contain;
 }
 
-.site-header.is-scrolled .brand__mark,
+/* Slightly larger on bigger screens */
+@media (min-width: 720px) {
+  .brand__logo {
+    height: 46px;
+  }
+}
+
+/* .site-header.is-scrolled .brand__mark,
 .site-header.menu-visible .brand__mark {
   background: var(--green);
   color: var(--white);
-}
+} */
 
 .brand__text {
   display: flex;
@@ -2098,9 +2100,18 @@ button {
   color: var(--white);
 }
 
-.brand--footer .brand__mark {
-  background: var(--green);
-  color: var(--white);
+.brand--footer {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand__logo--footer {
+  display: block;
+
+  width: auto;
+  height: 48px;
+
+  object-fit: contain;
 }
 
 .site-footer__top {
