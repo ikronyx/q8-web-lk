@@ -1,134 +1,282 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.querySelector(".site-loader");
-  const header = document.querySelector(".site-header");
-  const progress = document.querySelector(".scroll-progress");
-  const navToggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".main-nav");
-  const navLinks = document.querySelectorAll(".main-nav a");
-  const revealItems = document.querySelectorAll(".reveal");
-  const tabs = document.querySelectorAll(".trade-tab");
-  const panels = document.querySelectorAll(".trade-panel");
-  const cursorGlow = document.querySelector(".cursor-glow");
-  const year = document.querySelector("#year");
+(() => {
+  "use strict";
 
-  window.addEventListener("load", () => {
-    setTimeout(() => loader?.classList.add("is-hidden"), 450);
-  });
+  const header = document.querySelector("[data-header]");
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const mobileMenu = document.querySelector("[data-mobile-menu]");
+  const scrollProgress = document.querySelector("[data-scroll-progress]");
+  const revealElements = document.querySelectorAll("[data-reveal]");
+  const yearNode = document.querySelector("[data-current-year]");
 
-  year.textContent = new Date().getFullYear();
+  const COOKIE_STORAGE_KEY = "q8_privacy_preferences_v1";
 
-  const updateScrollUI = () => {
-    const scrollTop = window.scrollY;
-    const scrollHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const percentage = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  if (yearNode) {
+    yearNode.textContent = new Date().getFullYear();
+  }
 
-    progress.style.width = `${percentage}%`;
-    header.classList.toggle("scrolled", scrollTop > 30);
+  const updateHeader = () => {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
   };
 
-  updateScrollUI();
-  window.addEventListener("scroll", updateScrollUI, { passive: true });
+  const updateProgress = () => {
+    if (!scrollProgress) return;
+
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = documentHeight > 0 ? window.scrollY / documentHeight : 0;
+    scrollProgress.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+  };
+
+  const onScroll = () => {
+    updateHeader();
+    updateProgress();
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  updateHeader();
+  updateProgress();
+
+  const closeMobileMenu = () => {
+    if (!navToggle || !mobileMenu) return;
+
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open navigation menu");
+    mobileMenu.classList.remove("is-open");
+    header?.classList.remove("menu-visible");
+    document.body.classList.remove("menu-open");
+  };
+
+  const openMobileMenu = () => {
+    if (!navToggle || !mobileMenu) return;
+
+    navToggle.setAttribute("aria-expanded", "true");
+    navToggle.setAttribute("aria-label", "Close navigation menu");
+    mobileMenu.classList.add("is-open");
+    header?.classList.add("menu-visible");
+    document.body.classList.add("menu-open");
+  };
 
   navToggle?.addEventListener("click", () => {
-    const open = navToggle.classList.toggle("open");
-    nav.classList.toggle("open", open);
-    document.body.classList.toggle("menu-open", open);
-    navToggle.setAttribute("aria-expanded", String(open));
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMobileMenu() : openMobileMenu();
   });
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navToggle?.classList.remove("open");
-      nav?.classList.remove("open");
-      document.body.classList.remove("menu-open");
-      navToggle?.setAttribute("aria-expanded", "false");
-    });
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
   });
 
-  tabs.forEach((tab) => {
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 980) {
+      closeMobileMenu();
+    }
+  });
+
+  // Reveal-on-scroll motion
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const delay = Number(entry.target.dataset.revealDelay || 0);
+          entry.target.style.setProperty("--reveal-delay", `${delay}ms`);
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.12,
+      },
+    );
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+  } else {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+  }
+
+  // Trading tabs
+  const tradingTabs = document.querySelectorAll("[data-trading-tab]");
+  const tradingPanels = document.querySelectorAll("[data-trading-panel]");
+
+  tradingTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      const target = tab.dataset.tab;
+      const target = tab.dataset.tradingTab;
 
-      tabs.forEach((item) => {
-        const active = item === tab;
-        item.classList.toggle("active", active);
-        item.setAttribute("aria-selected", String(active));
+      tradingTabs.forEach((candidate) => {
+        const active = candidate === tab;
+        candidate.classList.toggle("is-active", active);
+        candidate.setAttribute("aria-selected", String(active));
       });
 
-      panels.forEach((panel) => {
-        panel.classList.toggle("active", panel.id === target);
+      tradingPanels.forEach((panel) => {
+        const active = panel.dataset.tradingPanel === target;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
       });
-
-      // Re-observe newly displayed content.
-      document
-        .querySelectorAll(`#${target} .reveal`)
-        .forEach((item) => observer.observe(item));
     });
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+  // Privacy preferences
+  const cookieBanner = document.querySelector("[data-cookie-banner]");
+  const privacyModal = document.querySelector("[data-privacy-modal]");
+  const analyticsConsent = document.querySelector("[data-consent-analytics]");
+  const marketingConsent = document.querySelector("[data-consent-marketing]");
+  const openSettingsButtons = document.querySelectorAll(
+    "[data-cookie-manage], [data-open-cookie-settings]",
   );
+  const closeSettingsButtons = document.querySelectorAll("[data-close-cookie-settings]");
+  const acceptButtons = document.querySelectorAll("[data-cookie-accept]");
+  const rejectButtons = document.querySelectorAll("[data-cookie-reject]");
+  const saveButton = document.querySelector("[data-cookie-save]");
 
-  revealItems.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index % 6, 5) * 55}ms`;
-    observer.observe(item);
+  let lastFocusedElement = null;
+
+  const readPreferences = () => {
+    try {
+      return JSON.parse(localStorage.getItem(COOKIE_STORAGE_KEY) || "null");
+    } catch {
+      return null;
+    }
+  };
+
+  const applyPreferences = (preferences) => {
+    /*
+      Hook optional scripts here. For example:
+
+      if (preferences.analytics) {
+        loadAnalytics();
+      }
+
+      if (preferences.marketing) {
+        loadMarketingPixels();
+      }
+
+      IMPORTANT:
+      Keep optional analytics / marketing scripts disabled until consent is true.
+    */
+    document.documentElement.dataset.analyticsConsent = preferences.analytics ? "granted" : "denied";
+    document.documentElement.dataset.marketingConsent = preferences.marketing ? "granted" : "denied";
+  };
+
+  const savePreferences = (preferences) => {
+    const storedValue = {
+      essential: true,
+      analytics: Boolean(preferences.analytics),
+      marketing: Boolean(preferences.marketing),
+      updatedAt: new Date().toISOString(),
+    };
+
+    localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(storedValue));
+    applyPreferences(storedValue);
+
+    if (cookieBanner) cookieBanner.hidden = true;
+    closePrivacyModal();
+  };
+
+  const openPrivacyModal = () => {
+    if (!privacyModal) return;
+
+    const currentPreferences = readPreferences();
+    if (analyticsConsent) analyticsConsent.checked = Boolean(currentPreferences?.analytics);
+    if (marketingConsent) marketingConsent.checked = Boolean(currentPreferences?.marketing);
+
+    lastFocusedElement = document.activeElement;
+    privacyModal.hidden = false;
+    document.body.classList.add("modal-open");
+
+    const dialog = privacyModal.querySelector(".privacy-modal__dialog");
+    window.requestAnimationFrame(() => dialog?.focus());
+  };
+
+  function closePrivacyModal() {
+    if (!privacyModal || privacyModal.hidden) return;
+
+    privacyModal.hidden = true;
+    document.body.classList.remove("modal-open");
+
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  const storedPreferences = readPreferences();
+
+  if (storedPreferences) {
+    applyPreferences(storedPreferences);
+  } else if (cookieBanner) {
+    cookieBanner.hidden = false;
+  }
+
+  openSettingsButtons.forEach((button) => {
+    button.addEventListener("click", openPrivacyModal);
   });
 
-  // Premium cursor light on desktop.
-  if (window.matchMedia("(pointer:fine)").matches && cursorGlow) {
-    window.addEventListener("pointermove", (event) => {
-      cursorGlow.style.left = `${event.clientX}px`;
-      cursorGlow.style.top = `${event.clientY}px`;
+  closeSettingsButtons.forEach((button) => {
+    button.addEventListener("click", closePrivacyModal);
+  });
+
+  acceptButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      savePreferences({ analytics: true, marketing: true });
     });
-  }
+  });
 
-  // Gentle pointer parallax for the hero orbital system.
-  const hero = document.querySelector(".hero");
-  const visual = document.querySelector(".hero-visual");
-
-  if (hero && visual && window.matchMedia("(pointer:fine)").matches) {
-    hero.addEventListener("pointermove", (event) => {
-      const rect = hero.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-      visual.style.transform = `translate(${x * 12}px, ${y * 12}px)`;
+  rejectButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      savePreferences({ analytics: false, marketing: false });
     });
+  });
 
-    hero.addEventListener("pointerleave", () => {
-      visual.style.transform = "translate(0,0)";
+  saveButton?.addEventListener("click", () => {
+    savePreferences({
+      analytics: Boolean(analyticsConsent?.checked),
+      marketing: Boolean(marketingConsent?.checked),
     });
-  }
+  });
 
-  // Active navigation based on section visibility.
-  const sections = [...document.querySelectorAll("main section[id]")];
-  const navMap = new Map(
-    [...document.querySelectorAll('.main-nav a[href^="#"]')].map((link) => [
-      link.getAttribute("href").slice(1),
-      link,
-    ]),
-  );
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+      closePrivacyModal();
+    }
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    if (event.key !== "Tab" || !privacyModal || privacyModal.hidden) return;
+
+    const dialog = privacyModal.querySelector(".privacy-modal__dialog");
+    const focusable = dialog?.querySelectorAll(
+      'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+
+    if (!focusable?.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  // Pause hero video when it is far outside the viewport.
+  const heroVideo = document.querySelector(".hero__media video");
+
+  if (heroVideo && "IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(
+      ([entry]) => {
         if (entry.isIntersecting) {
-          navMap.forEach((link) => link.classList.remove("active"));
-          navMap.get(entry.target.id)?.classList.add("active");
+          heroVideo.play().catch(() => {});
+        } else {
+          heroVideo.pause();
         }
-      });
-    },
-    { rootMargin: "-35% 0px -55% 0px", threshold: 0 },
-  );
+      },
+      { threshold: 0.08 },
+    );
 
-  sections.forEach((section) => sectionObserver.observe(section));
-});
+    videoObserver.observe(heroVideo);
+  }
+})();

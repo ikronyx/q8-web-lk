@@ -3,14 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#071a3b" />
     <meta
       name="description"
-      content="Q8 Petrol (Lanka) — global energy flows and commodity trade facilitation across the GCC, Asia, Europe, the United States and Indian Ocean trade corridors by GenY Tech Sri Lanka."
+      content="Q8 Petrol (Lanka) facilitates refined petroleum, industrial minerals, precious metals and agricultural commodity trade across GCC, Asia, Europe, the United States and Indian Ocean corridors."
     />
+    <meta name="theme-color" content="#05783c" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Q8 Petrol (Lanka) | Global Energy & Commodity Trade"
+    />
+    <meta
+      property="og:description"
+      content="Powering global energy flows and commodity trade through evidence-led facilitation, compliance and execution."
+    />
+    <meta property="og:image" content="assets/images/og-cover.svg" />
+
     <title>Q8 Petrol (Lanka) | Global Energy & Commodity Trade</title>
 
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,654 +31,1263 @@
     />
 
     <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/main.js"></script>
   </head>
 
   <body>
-    <div class="site-loader" aria-hidden="true">
-      <div class="loader-mark">
-        <span>Q8</span>
-        <i></i>
-      </div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="page-progress" aria-hidden="true">
+      <span class="page-progress__bar" data-scroll-progress></span>
     </div>
 
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <div class="scroll-progress" aria-hidden="true"></div>
-
-    <header class="site-header" id="top">
-      <div class="container nav-wrap">
+    <header class="site-header" data-header>
+      <div class="shell site-header__inner">
         <a class="brand" href="#home" aria-label="Q8 Petrol home">
-          <span class="brand-mark">
-            <img src="assets/logo.png" alt="Q8 Petrol" />
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <path
+                d="M8 24c0-8.837 7.163-16 16-16 5.492 0 10.338 2.768 13.22 6.985"
+              />
+              <path
+                d="M40 24c0 8.837-7.163 16-16 16-5.492 0-10.338-2.768-13.22-6.985"
+              />
+              <path
+                d="M17.2 18.7h10.7c3.6 0 6.5 2.7 6.5 6.1 0 3.4-2.9 6.1-6.5 6.1H17.2"
+              />
+              <path d="M15.2 16.5v15" />
+            </svg>
           </span>
-
-          <span class="brand-copy">
-            <strong>Q8 PETROL</strong>
-            <small>LANKA</small>
+          <span class="brand__text">
+            <strong>Q8 Petrol</strong>
+            <small>Lanka</small>
           </span>
         </a>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-label="Open navigation"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="main-nav" aria-label="Primary navigation">
+        <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="#home">Home</a>
           <a href="#profile">Profile</a>
           <a href="#trading">Trading</a>
           <a href="#hubs">Global Hubs</a>
           <a href="#leadership">Leadership</a>
-          <a class="nav-cta" href="#contact">Trade With Us <span>↗</span></a>
         </nav>
+
+        <div class="site-header__actions">
+          <a class="header-cta" href="#contact">
+            Trade With Us
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 10h10M11 6l4 4-4 4" />
+            </svg>
+          </a>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open navigation menu"
+            data-nav-toggle
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+        <div class="shell mobile-menu__inner">
+          <nav aria-label="Mobile navigation">
+            <a href="#home">Home <span>01</span></a>
+            <a href="#profile">Profile <span>02</span></a>
+            <a href="#trading">Trading <span>03</span></a>
+            <a href="#hubs">Global Hubs <span>04</span></a>
+            <a href="#leadership">Leadership <span>05</span></a>
+          </nav>
+          <a class="button button--primary button--full" href="#contact"
+            >Start a Trade Enquiry</a
+          >
+        </div>
       </div>
     </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero section-dark" id="home">
-        <div class="hero-grid"></div>
-        <div class="hero-orb orb-one"></div>
-        <div class="hero-orb orb-two"></div>
+    <main id="main-content">
+      <section class="hero" id="home">
+        <div class="hero__media" aria-hidden="true">
+          <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+            <source src="assets/video/q8.mp4" type="video/mp4" />
+          </video>
 
-        <div class="container hero-content">
-          <div class="eyebrow reveal">
-            <span class="pulse-dot"></span>
-            GLOBAL ENERGY & COMMODITY FACILITATION
+          <div class="hero__media-fallback"></div>
+          <div class="hero__overlay"></div>
+          <div class="hero__grain"></div>
+        </div>
+
+        <div class="hero__lines" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="shell hero__content">
+          <div class="hero__copy" data-reveal>
+            <p class="eyebrow eyebrow--light">
+              <span class="status-dot"></span>
+              Global Energy & Commodity Facilitation
+            </p>
+
+            <h1>
+              Powering Global
+              <span>Energy Flows</span>
+              & Commodity Trade
+            </h1>
+
+            <p class="hero__lead">
+              Q8 Petrol (Lanka) is a direct mandate and trading facilitator of
+              refined petroleum products, industrial minerals, precious metals
+              and agricultural commodities, connecting refineries, producers,
+              resellers, stockists and buyers across the GCC, Asia, Europe, the
+              United States and Indian Ocean trade corridors.
+            </p>
+
+            <div class="hero__actions">
+              <a class="button button--light" href="#trading">
+                Explore Trading Portfolio
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M5 10h10M11 6l4 4-4 4" />
+                </svg>
+              </a>
+              <a class="text-link text-link--light" href="#profile">
+                Discover Q8 Petrol
+                <span aria-hidden="true">↘</span>
+              </a>
+            </div>
           </div>
 
-          <h1 class="hero-title reveal">
-            Powering <span>Global</span><br />
-            Energy Flows<br />
-            <em>&amp; Commodity Trade.</em>
-          </h1>
+          <div class="hero__rail" data-reveal data-reveal-delay="140">
+            <div class="hero-stat">
+              <span>02</span>
+              <p>Strategic operating hubs</p>
+            </div>
+            <div class="hero-stat">
+              <span>05+</span>
+              <p>Global trade corridors</p>
+            </div>
+            <div class="hero-stat">
+              <span>01</span>
+              <p>Accountable execution structure</p>
+            </div>
+          </div>
+        </div>
 
-          <p class="hero-text reveal">
-            Q8 Petrol (Lanka) connects refineries, producers, resellers,
-            stockists and qualified buyers across the GCC, Asia, Europe, the
-            United States and Indian Ocean trade corridors.
+        <div class="hero__bottom shell">
+          <a class="scroll-cue" href="#profile">
+            <span class="scroll-cue__line"></span>
+            Scroll to explore
+          </a>
+          <p>
+            Middle East <span>•</span> Indian Ocean <span>•</span> Global
+            Markets
           </p>
-
-          <div class="hero-actions reveal">
-            <a href="#trading" class="btn btn-primary">
-              Explore Our Trade
-              <span class="btn-icon">↗</span>
-            </a>
-            <a href="#profile" class="btn btn-ghost">Discover Q8</a>
-          </div>
-
-          <div class="hero-metrics reveal">
-            <div>
-              <strong>02</strong>
-              <span>Strategic<br />Operations Hubs</span>
-            </div>
-            <div>
-              <strong>05+</strong>
-              <span>Global Trade<br />Corridors</span>
-            </div>
-            <div>
-              <strong>01</strong>
-              <span>Accountable<br />Structure</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="energy-ring ring-a"></div>
-          <div class="energy-ring ring-b"></div>
-          <div class="energy-ring ring-c"></div>
-          <div class="world-node node-kuwait"><span></span><b>KUWAIT</b></div>
-          <div class="world-node node-lanka"><span></span><b>SRI LANKA</b></div>
-          <div class="route-line route-one"></div>
-          <div class="route-line route-two"></div>
-          <div class="route-line route-three"></div>
-          <div class="hero-core">
-            <span>Q8</span>
-            <small>GLOBAL<br />TRADE</small>
-          </div>
-        </div>
-
-        <div class="hero-scroll">
-          <span>Scroll to explore</span>
-          <i></i>
         </div>
       </section>
 
-      <!-- PROFILE -->
-      <section class="profile section-light" id="profile">
-        <div class="container">
-          <div class="section-heading split-heading reveal">
-            <div>
-              <span class="section-kicker">PROFILE</span>
+      <section class="trust-strip" aria-label="Trade capabilities">
+        <div class="shell trust-strip__inner">
+          <p>Built for institutional trade execution</p>
+          <div class="trust-strip__items">
+            <span>Verified Sourcing</span>
+            <span>SPA Coordination</span>
+            <span>KYC / AML</span>
+            <span>Inspection</span>
+            <span>Maritime Logistics</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--profile" id="profile">
+        <div class="shell">
+          <div class="section-heading section-heading--split">
+            <div data-reveal>
+              <p class="eyebrow">Profile</p>
               <h2>
-                Institutional facilitation<br /><span>built on precision.</span>
+                Institutional Facilitation Built on Integrity, Speed & Precision
               </h2>
             </div>
-            <p>
-              Integrity. Speed. Precision. Three principles behind every
-              transaction we facilitate.
+            <p
+              class="section-heading__aside"
+              data-reveal
+              data-reveal-delay="100"
+            >
+              We bridge primary refinery allocations, major state titleholders
+              and qualified international buyers through disciplined commercial
+              structure, independent verification and globally aligned
+              documentation.
             </p>
           </div>
 
-          <div class="profile-layout">
-            <div class="profile-copy reveal">
-              <p class="lead-copy">
-                Q8 Petrol is an established oil &amp; gas and global commodity
+          <div class="profile-layout profile-layout--editorial">
+            <div class="profile-story" data-reveal>
+              <p class="profile-story__lead">
+                Q8 Petrol is an established oil & gas and global commodity
                 trading facilitation entity, operating from a strategic dual
-                presence across <strong>Kuwait</strong>, the Middle East trading
-                hub, and <strong>Sri Lanka</strong>, our Indian Ocean maritime
-                and compliance headquarters.
+                presence across Kuwait — our Middle East trading hub — and Sri
+                Lanka, our Indian Ocean maritime and compliance headquarters.
               </p>
 
               <p>
                 This positioning allows us to deliver comprehensive trade
                 execution across global ports, coordinating international
                 commodity supply contracts, direct refinery allocations, vessel
-                chartering, and independent third-party inspection under a
+                chartering and independent third-party inspection under a
                 single, accountable structure.
               </p>
 
               <p>
-                We bridge the gap between primary refinery allocations, major
-                state titleholders, and qualified international buyers —
-                structuring every transaction on institutional banking
-                compliance, independent testing, and transparent maritime
-                shipping.
+                Every trade we facilitate is built on verified sourcing and
+                internationally recognised inspection standards, backed by a
+                network of refineries, mandates and logistics partners developed
+                through sustained engagement across the GCC, Asia, Europe and
+                Indian Ocean trade corridors.
               </p>
 
-              <div class="quote-card">
-                <span class="quote-mark">“</span>
-                <p>
-                  Where others broker on assumption, Q8 Petrol facilitates on
-                  evidence.
-                </p>
-                <small>— Q8 Petrol operating philosophy</small>
-              </div>
+              <blockquote>
+                <span aria-hidden="true">“</span>
+                Where others broker on assumption, Q8 Petrol facilitates on
+                evidence.
+              </blockquote>
+
+              <p>
+                Integrity in counterparty vetting, speed in trade execution and
+                precision in documentation, inspection and delivery remain
+                central to how we operate.
+              </p>
+
+              <a class="text-link text-link--dark" href="#hubs">
+                Explore Our Trade Corridors
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
 
-            <div class="profile-stack reveal">
-              <div class="stack-card card-dark">
-                <span class="stack-number">01</span>
-                <div class="stack-icon">◎</div>
-                <h3>Verified Sourcing</h3>
-                <p>
-                  Counterparty vetting and sourcing discipline designed around
-                  evidence, traceability and commercial clarity.
-                </p>
-              </div>
-              <div class="stack-card card-blue">
-                <span class="stack-number">02</span>
-                <div class="stack-icon">↗</div>
-                <h3>Trade Execution</h3>
-                <p>
-                  Coordinated commercial, logistics and documentation workflows
-                  across international trade corridors.
-                </p>
-              </div>
-              <div class="stack-card card-blue-light">
-                <span class="stack-number">03</span>
-                <div class="stack-icon">◌</div>
-                <h3>Independent Inspection</h3>
-                <p>
-                  Third-party inspection and internationally recognised testing
-                  standards integrated into the transaction flow.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#hubs" class="text-link reveal"
-            >Explore our trade corridors <span>→</span></a
-          >
-        </div>
-      </section>
-
-      <!-- TRADING -->
-      <section class="trading section-soft" id="trading">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="section-kicker">TRADING CATEGORIES</span>
-            <h2>Commodity flows,<br /><span>structured for scale.</span></h2>
-            <p>
-              Explore the product categories across our selling and buying
-              mandates.
-            </p>
-          </div>
-
-          <div
-            class="trade-switcher reveal"
-            role="tablist"
-            aria-label="Trading direction"
-          >
-            <button
-              class="trade-tab active"
-              data-tab="selling"
-              role="tab"
-              aria-selected="true"
+            <figure
+              class="editorial-image editorial-image--profile"
+              data-reveal
+              data-reveal-delay="80"
             >
-              Selling <span>FOB / CIF</span>
-            </button>
-            <button
-              class="trade-tab"
-              data-tab="buying"
-              role="tab"
-              aria-selected="false"
-            >
-              Buying <span>FOB / CIF</span>
-            </button>
-          </div>
+              <div class="image-placeholder image-placeholder--profile">
+                Replace this placeholder with:
+                <img
+                  src="assets/images/1-profile-trade.jpg"
+                  alt="Q8 Petrol trade infrastructure"
+                />
+                <!-- <span>Strategic refinery / port imagery</span>
+                <small>Recommended: 1600 × 1100 landscape</small> -->
+              </div>
+              <figcaption>
+                <span>Trade Infrastructure</span>
+                <!-- <p>
+                  Use a refined image of terminal operations, refinery
+                  infrastructure, vessel loading or port-side commodity
+                  movement.
+                </p> -->
+              </figcaption>
+            </figure>
 
-          <div class="trade-panel active" id="selling" role="tabpanel">
-            <div class="category-grid">
-              <article class="commodity-card featured-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">01</span>
-                  <span class="commodity-type">REFINED PRODUCTS</span>
+            <div class="profile-system" data-reveal data-reveal-delay="120">
+              <div class="system-orbit" aria-hidden="true">
+                <span class="orbit orbit--one"></span>
+                <span class="orbit orbit--two"></span>
+                <div class="system-orbit__center">
+                  <strong>Q8</strong>
+                  <small>Execution</small>
                 </div>
-                <div class="commodity-symbol fuel-symbol">◒</div>
-                <h3>EN590<br /><span>10PPM Diesel</span></h3>
-                <p>
-                  Ultra-low sulphur automotive diesel fuel with max 10 PPM
-                  sulphur, high cetane rating and clean-burning efficiency.
-                </p>
-                <div class="card-line"></div>
-                <span class="spec-tag">LOW SULPHUR</span>
-              </article>
+                <span class="orbit-node orbit-node--one"></span>
+                <span class="orbit-node orbit-node--two"></span>
+                <span class="orbit-node orbit-node--three"></span>
+              </div>
 
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">02</span
-                  ><span class="commodity-type">AVIATION</span>
-                </div>
-                <div class="commodity-symbol">✦</div>
-                <h3>Jet A-1</h3>
-                <p>
-                  High-grade aviation turbine fuel meeting international
-                  aviation criteria.
-                </p>
-                <span class="spec-tag">AVIATION FUEL</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">03</span
-                  ><span class="commodity-type">MARINE / POWER</span>
-                </div>
-                <div class="commodity-symbol">◉</div>
-                <h3>Virgin Fuel Oil D6</h3>
-                <p>
-                  Heavy residual fuel oil engineered for power generation,
-                  thermal heating utilities and vessel bunkering.
-                </p>
-                <span class="spec-tag">HEAVY FUEL</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">04</span
-                  ><span class="commodity-type">MOTOR FUEL</span>
-                </div>
-                <div class="commodity-symbol">◇</div>
-                <h3>Motor Gasoline</h3>
-                <p>
-                  RON 91 / 95 unleaded gasoline refined to Gulf GSO and EN228
-                  standards with optimal anti-knock properties.
-                </p>
-                <span class="spec-tag">RON 91 / 95</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">05</span
-                  ><span class="commodity-type">GAS</span>
-                </div>
-                <div class="commodity-symbol">∞</div>
-                <h3>LPG</h3>
-                <p>
-                  Pressurised propane/butane blends for power utilities and
-                  industrial grids.
-                </p>
-                <span class="spec-tag">PROPANE / BUTANE</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">06</span
-                  ><span class="commodity-type">CRYOGENIC ENERGY</span>
-                </div>
-                <div class="commodity-symbol">❄</div>
-                <h3>LNG</h3>
-                <p>
-                  Bulk cryogenic LNG for power utilities and industrial grids.
-                </p>
-                <span class="spec-tag">NATURAL GAS</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">07</span
-                  ><span class="commodity-type">INDUSTRIAL MINERAL</span>
-                </div>
-                <div class="commodity-symbol">◆</div>
-                <h3>Sulphur Granular</h3>
-                <p>
-                  Bright yellow granular elemental sulphur for fertilizer
-                  synthesis, sulphuric acid and chemical processing.
-                </p>
-                <span class="spec-tag">ELEMENTAL SULPHUR</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">08</span
-                  ><span class="commodity-type">PRECIOUS METALS</span>
-                </div>
-                <div class="commodity-symbol">◇</div>
-                <h3>Gold Bullion / Doré</h3>
-                <p>
-                  Precious metals sourcing and facilitation for qualified
-                  international counterparties.
-                </p>
-                <span class="spec-tag">PRECIOUS METALS</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">09</span
-                  ><span class="commodity-type">AGRI-COMMODITIES</span>
-                </div>
-                <div class="commodity-symbol">✺</div>
-                <h3>Edible Oils</h3>
-                <p>
-                  Bulk crude and refined edible oils including Palm, Sunflower
-                  and Soy.
-                </p>
-                <span class="spec-tag">BULK AGRI</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">10</span
-                  ><span class="commodity-type">AGRI-COMMODITIES</span>
-                </div>
-                <div class="commodity-symbol">▧</div>
-                <h3>Rice</h3>
-                <p>
-                  Export-grade rice varieties structured for international
-                  commodity buyers.
-                </p>
-                <span class="spec-tag">FOOD COMMODITY</span>
-              </article>
-
-              <article class="commodity-card reveal">
-                <div class="card-top">
-                  <span class="commodity-index">11</span
-                  ><span class="commodity-type">AGRI-COMMODITIES</span>
-                </div>
-                <div class="commodity-symbol">✣</div>
-                <h3>Ceylon Spices</h3>
-                <p>
-                  Authentic Ceylon spices sourced for global agricultural
-                  commodity trade.
-                </p>
-                <span class="spec-tag">CEYLON ORIGIN</span>
-              </article>
+              <div class="system-list">
+                <article>
+                  <span>01</span>
+                  <div>
+                    <h3>Verified Counterparties</h3>
+                    <p>
+                      Structured KYC, commercial qualification and evidence-led
+                      sourcing.
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span>02</span>
+                  <div>
+                    <h3>Institutional Documentation</h3>
+                    <p>
+                      SPA coordination, banking alignment and controlled
+                      documentation flows.
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span>03</span>
+                  <div>
+                    <h3>Independent Inspection</h3>
+                    <p>
+                      Third-party quantity and quality verification aligned to
+                      trade terms.
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span>04</span>
+                  <div>
+                    <h3>Maritime Execution</h3>
+                    <p>
+                      Port, chartering and delivery coordination across global
+                      trade lanes.
+                    </p>
+                  </div>
+                </article>
+              </div>
             </div>
-          </div>
-
-          <div class="trade-panel" id="buying" role="tabpanel">
-            <div class="buying-grid">
-              <article class="buy-item reveal">
-                <span>01</span><strong>Crude Oil</strong
-                ><small>FOB / CIF</small>
-              </article>
-              <article class="buy-item reveal">
-                <span>02</span><strong>EN590</strong
-                ><small>10 / 50 / 500 / 5000 PPM</small>
-              </article>
-              <article class="buy-item reveal">
-                <span>03</span><strong>Jet A-1</strong><small>FOB / CIF</small>
-              </article>
-              <article class="buy-item reveal">
-                <span>04</span><strong>D2</strong><small>FOB / CIF</small>
-              </article>
-              <article class="buy-item reveal">
-                <span>05</span><strong>D6</strong><small>FOB / CIF</small>
-              </article>
-              <article class="buy-item reveal">
-                <span>06</span><strong>Urea 46%</strong
-                ><small>Bulk / Fertilizer</small>
-              </article>
-              <article class="buy-item reveal">
-                <span>07</span><strong>Sulfur Granular</strong
-                ><small>Elemental Sulphur</small>
-              </article>
-            </div>
-          </div>
-
-          <div class="trade-note reveal">
-            <span>01</span>
-            <p>
-              Product availability, specifications, origin, allocation and
-              commercial terms are subject to mandate verification and
-              transaction-specific documentation.
-            </p>
           </div>
         </div>
       </section>
 
-      <!-- HUBS -->
-      <section class="hubs section-dark" id="hubs">
-        <div class="hubs-bg"></div>
-        <div class="container">
-          <div class="section-heading light reveal">
-            <span class="section-kicker">GLOBAL HUBS</span>
-            <h2>Two hubs.<br /><span>One global network.</span></h2>
-            <p>
+      <section class="section section--soft" id="trading">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow" data-reveal>Trading Categories</p>
+            <h2 data-reveal>Commodities Structured for International Trade</h2>
+            <p class="section-heading__intro" data-reveal>
+              A focused portfolio spanning refined oil products, industrial
+              minerals, precious metals and agricultural commodities under FOB
+              and CIF transaction structures.
+            </p>
+          </div>
+
+          <div class="trading-visual-strip" data-reveal>
+            <figure class="trading-visual-card">
+              <div class="image-placeholder image-placeholder--energy">
+                Replace this placeholder with:
+                <img
+                  src="assets/images/2-trading-energy.jpg"
+                  alt="Refined petroleum operations"
+                />
+                <!-- <span>Refined petroleum operations</span>
+                <small>Recommended: 1400 × 900</small> -->
+              </div>
+              <figcaption>
+                <strong>Energy</strong>
+                <span>Refined fuels, aviation products and gas</span>
+              </figcaption>
+            </figure>
+
+            <figure class="trading-visual-card">
+              <div class="image-placeholder image-placeholder--commodities">
+                Replace this placeholder with:
+                <img
+                  src="assets/images/3-trading-commodities.jpg"
+                  alt="Bulk commodity trading"
+                />
+                <!-- <span>Bulk commodities / industrial materials</span>
+                <small>Recommended: 1400 × 900</small> -->
+              </div>
+              <figcaption>
+                <strong>Commodities</strong>
+                <span
+                  >Industrial minerals, precious metals and agri-products</span
+                >
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="trading-switcher" data-trading-switcher data-reveal>
+            <div
+              class="segmented-control"
+              role="tablist"
+              aria-label="Trading categories"
+            >
+              <button
+                class="is-active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="selling-panel"
+                data-trading-tab="selling"
+              >
+                <span>01</span>
+                Selling
+                <small>FOB / CIF</small>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="buying-panel"
+                data-trading-tab="buying"
+              >
+                <span>02</span>
+                Buying
+                <small>FOB / CIF</small>
+              </button>
+            </div>
+
+            <div
+              class="trading-panel is-active"
+              id="selling-panel"
+              role="tabpanel"
+              data-trading-panel="selling"
+            >
+              <div class="category-block">
+                <div class="category-block__heading">
+                  <span class="category-index">01</span>
+                  <div>
+                    <p>Refined Oil Products</p>
+                    <h3>
+                      Energy products for transport, aviation, power and
+                      industrial demand.
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="commodity-grid">
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>EN590</span>
+                      <small>Diesel</small>
+                    </div>
+                    <h4>EN590 10PPM Diesel</h4>
+                    <p>
+                      Ultra-low sulphur automotive diesel with max 10 PPM
+                      sulphur, high cetane rating and clean-burning efficiency.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Refined Oil</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>JET</span>
+                      <small>Aviation</small>
+                    </div>
+                    <h4>Aviation Fuel (Jet A-1)</h4>
+                    <p>
+                      High-grade aviation turbine fuel structured to meet
+                      international aviation criteria and commercial supply
+                      requirements.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Aviation</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>D6</span>
+                      <small>Fuel Oil</small>
+                    </div>
+                    <h4>Virgin Fuel Oil D6</h4>
+                    <p>
+                      Heavy residual fuel oil for power generation stations,
+                      thermal heating utilities and vessel bunkering
+                      applications.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Fuel Oil</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>RON</span>
+                      <small>91 / 95</small>
+                    </div>
+                    <h4>Motor Gasoline RON 91 / 95</h4>
+                    <p>
+                      Clean-burning unleaded motor gasoline refined to Gulf GSO
+                      and EN228 standards with optimal anti-knock properties.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Gasoline</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>LPG</span>
+                      <small>Gas</small>
+                    </div>
+                    <h4>Liquefied Petroleum Gas</h4>
+                    <p>
+                      Pressurised LPG propane/butane blends for power utilities,
+                      industrial networks and commercial energy requirements.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Gas</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>LNG</span>
+                      <small>Gas</small>
+                    </div>
+                    <h4>Liquefied Natural Gas</h4>
+                    <p>
+                      Bulk cryogenic LNG for power utilities, large-scale
+                      industrial demand and international energy supply chains.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Gas</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="category-block">
+                <div class="category-block__heading">
+                  <span class="category-index">02</span>
+                  <div>
+                    <p>Industrial Minerals</p>
+                    <h3>
+                      Essential feedstock for agricultural and chemical
+                      production.
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="commodity-grid commodity-grid--compact">
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>S</span>
+                      <small>Elemental</small>
+                    </div>
+                    <h4>Sulphur Granular</h4>
+                    <p>
+                      Bright yellow granular elemental sulphur for fertiliser
+                      synthesis, sulphuric acid production and chemical
+                      processing.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Mineral</span><span>FOB / CIF</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="category-block">
+                <div class="category-block__heading">
+                  <span class="category-index">03</span>
+                  <div>
+                    <p>Precious Metals & Minerals</p>
+                    <h3>
+                      Institutional precious-metal transactions with
+                      documentation-led facilitation.
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="commodity-grid commodity-grid--compact">
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>AU</span>
+                      <small>Gold</small>
+                    </div>
+                    <h4>Gold Bullion / Doré</h4>
+                    <p>
+                      Precious metal trade facilitation structured around
+                      counterparty verification, documentation and compliant
+                      settlement processes.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Precious Metal</span><span>International</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="category-block">
+                <div class="category-block__heading">
+                  <span class="category-index">04</span>
+                  <div>
+                    <p>Agri-Commodities</p>
+                    <h3>
+                      Bulk agricultural products connecting regional supply with
+                      global demand.
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="commodity-grid">
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>OIL</span>
+                      <small>Edible</small>
+                    </div>
+                    <h4>Edible Oils</h4>
+                    <p>
+                      Bulk crude and refined edible oils including palm,
+                      sunflower and soy for food and industrial markets.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Agri</span><span>Bulk</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>RICE</span>
+                      <small>Export</small>
+                    </div>
+                    <h4>Rice</h4>
+                    <p>
+                      Export-grade rice varieties sourced and structured for
+                      regional and international wholesale trade.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Agri</span><span>Export Grade</span>
+                    </div>
+                  </article>
+
+                  <article class="commodity-card">
+                    <div class="commodity-card__top">
+                      <span>SPC</span>
+                      <small>Ceylon</small>
+                    </div>
+                    <h4>Authentic Ceylon Spices</h4>
+                    <p>
+                      Premium Sri Lankan spice products positioned for
+                      international food, retail and wholesale distribution.
+                    </p>
+                    <div class="commodity-card__meta">
+                      <span>Agri</span><span>Sri Lanka</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="trading-panel"
+              id="buying-panel"
+              role="tabpanel"
+              data-trading-panel="buying"
+              hidden
+            >
+              <div class="buying-intro">
+                <div>
+                  <p class="eyebrow">Current Procurement Interest</p>
+                  <h3>
+                    Qualified supply opportunities across strategic energy and
+                    industrial products.
+                  </h3>
+                </div>
+                <p>
+                  Q8 Petrol evaluates credible supply mandates, refinery
+                  allocations and titleholder positions aligned with validated
+                  buyer requirements and acceptable compliance terms.
+                </p>
+              </div>
+
+              <div class="procurement-grid">
+                <article>
+                  <span>01</span>
+                  <h4>Crude Oil</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>02</span>
+                  <h4>EN590 10PPM</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>03</span>
+                  <h4>EN590 50PPM</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>04</span>
+                  <h4>EN590 500PPM</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>05</span>
+                  <h4>EN590 5000PPM</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>06</span>
+                  <h4>Jet A-1</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>07</span>
+                  <h4>D2</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>08</span>
+                  <h4>D6</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>09</span>
+                  <h4>Urea 46%</h4>
+                  <p>FOB / CIF</p>
+                </article>
+                <article>
+                  <span>10</span>
+                  <h4>Sulphur Granular</h4>
+                  <p>FOB / CIF</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hubs" id="hubs">
+        <div class="shell">
+          <div class="section-heading section-heading--split">
+            <div data-reveal>
+              <p class="eyebrow">Global Hubs</p>
+              <h2>Dual Operations Hub: Middle East & Sri Lanka</h2>
+            </div>
+            <p
+              class="section-heading__aside"
+              data-reveal
+              data-reveal-delay="100"
+            >
               Combining Arabian Gulf petroleum access with Indian Ocean maritime
               governance and institutional legal compliance.
             </p>
           </div>
 
-          <div class="hub-layout">
-            <div
-              class="hub-map reveal"
-              aria-label="Illustrative trade corridor map"
-            >
+          <div class="hub-imagery-grid" data-reveal>
+            <figure class="hub-image-card">
+              <div class="image-placeholder image-placeholder--kuwait">
+                Replace this placeholder with:
+                <img
+                  src="assets/images/4-hub-kuwait.jpg"
+                  alt="Kuwait energy infrastructure"
+                />
+                <!-- <span>Kuwait / GCC energy infrastructure</span>
+                <small>Recommended: 1400 × 900</small> -->
+              </div>
+              <figcaption>
+                <span>Middle East</span>
+                <strong>Refinery access & commercial energy operations</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="hub-image-card">
+              <div class="image-placeholder image-placeholder--srilanka">
+                Replace this placeholder with:
+                <img
+                  src="assets/images/5-hub-sri-lanka.jpg"
+                  alt="Sri Lanka maritime logistics"
+                />
+                <!-- <span>Sri Lanka / Indian Ocean logistics</span>
+                <small>Recommended: 1400 × 900</small> -->
+              </div>
+              <figcaption>
+                <span>Indian Ocean</span>
+                <strong
+                  >Maritime coordination, compliance & trade governance</strong
+                >
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="hub-visual" data-reveal>
+            <div class="hub-map" aria-hidden="true">
               <div class="map-grid"></div>
-              <div class="map-orbit orbit-1"></div>
-              <div class="map-orbit orbit-2"></div>
-              <div class="map-route map-route-1"></div>
-              <div class="map-route map-route-2"></div>
-              <div class="map-route map-route-3"></div>
-              <div class="hub-pin pin-kuwait"><i></i><span>Kuwait</span></div>
-              <div class="hub-pin pin-lanka"><i></i><span>Sri Lanka</span></div>
-              <div class="map-center">
-                Q8<br /><small>TRADE<br />NETWORK</small>
+              <svg
+                class="map-route"
+                viewBox="0 0 1000 420"
+                preserveAspectRatio="none"
+              >
+                <path
+                  class="map-route__base"
+                  d="M195 155 C355 70 545 80 780 275"
+                />
+                <path
+                  class="map-route__flow"
+                  d="M195 155 C355 70 545 80 780 275"
+                />
+              </svg>
+              <span class="map-point map-point--kuwait"
+                ><i></i><b>Kuwait</b></span
+              >
+              <span class="map-point map-point--sri-lanka"
+                ><i></i><b>Sri Lanka</b></span
+              >
+              <div class="hub-map__label">
+                <span>Connected execution</span>
+                <strong>GCC ↔ Indian Ocean</strong>
               </div>
             </div>
+          </div>
 
-            <div class="hub-list">
-              <article class="hub-card reveal">
-                <div class="hub-flag">KW</div>
-                <div class="hub-card-content">
-                  <span class="hub-label">01 / MIDDLE EAST</span>
-                  <h3>Operations &amp;<br />Marketing Desk</h3>
-                  <p>
-                    Positioned in the hub of Middle East energy production,
-                    managing refinery relationships, vessel chartering
-                    allocations and commercial trading desks.
-                  </p>
-                  <a href="tel:+96565951820">+965 6595 1820 <span>↗</span></a>
-                </div>
-              </article>
+          <div class="hub-grid">
+            <article class="hub-card" data-reveal>
+              <div class="hub-card__top">
+                <span class="flag" aria-hidden="true">
+                  <img src="assets/images/6-kuwait.png" alt="" />
+                </span>
+                <span class="hub-card__index">01</span>
+              </div>
+              <p class="eyebrow">Middle East Operations & Marketing Desk</p>
+              <h3>Kuwait</h3>
+              <p>
+                Positioned in the hub of Middle East energy production, managing
+                refinery relationships, vessel chartering allocations and
+                commercial trading desks.
+              </p>
+              <a href="tel:+96565951820" class="hub-contact">
+                <small>Direct Trade Line</small>
+                <strong>+965 6595 1820</strong>
+              </a>
+            </article>
 
-              <article class="hub-card reveal">
-                <div class="hub-flag">LK</div>
-                <div class="hub-card-content">
-                  <span class="hub-label">02 / SRI LANKA</span>
-                  <h3>Registered &amp;<br />Compliance Office</h3>
-                  <p>
-                    Directing international trade legalities, Sales &amp;
-                    Purchase Agreements, KYC compliance and Indian Ocean
-                    logistics.
-                  </p>
-                  <a href="tel:+94779277760">+94 7792 77760 <span>↗</span></a>
-                </div>
-              </article>
-            </div>
+            <article class="hub-card" data-reveal data-reveal-delay="100">
+              <div class="hub-card__top">
+                <span class="flag" aria-hidden="true">
+                  <img src="assets/images/7-srilanka.png" alt="" />
+                </span>
+                <span class="hub-card__index">02</span>
+              </div>
+              <p class="eyebrow">Registered & Compliance Office</p>
+              <h3>Sri Lanka</h3>
+              <p>
+                Directing international trade legalities, Sales & Purchase
+                Agreements, KYC compliance and Indian Ocean logistics.
+              </p>
+              <a href="tel:+94779277760" class="hub-contact">
+                <small>Direct Trade Line</small>
+                <strong>+94 77 927 7760</strong>
+              </a>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- LEADERSHIP -->
-      <section class="leadership section-light" id="leadership">
-        <div class="container">
-          <div class="section-heading split-heading reveal">
-            <div>
-              <span class="section-kicker">LEADERSHIP</span>
-              <h2>Experience behind<br /><span>every transaction.</span></h2>
-            </div>
-            <p>
-              Commercial leadership, governance and international trade
-              experience aligned under one operating structure.
+      <section class="section section--soft" id="leadership">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow" data-reveal>Leadership</p>
+            <h2 data-reveal>
+              Experienced Direction Across Trade, Banking, Aviation & Compliance
+            </h2>
+            <p class="section-heading__intro" data-reveal>
+              Q8 Petrol is guided by senior professionals whose combined
+              experience spans GCC banking, aviation procurement, commercial
+              strategy, governance and legal compliance.
             </p>
           </div>
 
-          <div class="leaders-grid">
-            <article class="leader-card reveal">
-              <div class="leader-avatar avatar-two">MSN</div>
-              <div class="leader-body">
-                <span class="leader-role">CEO / MANAGING DIRECTOR</span>
+          <figure class="leadership-image-band" data-reveal>
+            <div class="image-placeholder image-placeholder--boardroom">
+              Replace this placeholder with:
+              <img
+                src="assets/images/8-executive.jpg"
+                alt="Q8 Petrol leadership and governance"
+              />
+              <!-- <span>Corporate / boardroom / executive trade imagery</span>
+              <small>Recommended: 1800 × 700 panoramic</small> -->
+            </div>
+            <figcaption>
+              <span>Leadership & Governance</span>
+              <p>
+                Use one restrained executive image here rather than adding
+                decorative imagery to every leadership card.
+              </p>
+            </figcaption>
+          </figure>
+
+          <div class="leadership-grid">
+            <article class="leader-card" data-reveal>
+              <!-- <div class="leader-card__portrait">
+                <div class="portrait-placeholder">
+                  <span>MSN</span>
+                  <small>Portrait placeholder</small>
+                </div>
+                <div class="leader-card__role">CEO / Managing Director</div>
+              </div> -->
+              <div class="leader-card__portrait">
+                <div class="leader-card__role">CEO / Managing Director</div>
+              </div>
+              <div class="leader-card__body">
+                <p class="leader-card__index">01</p>
                 <h3>Mohamed Shahan Noordeen</h3>
-                <p>
+                <p class="leader-card__summary">
                   Directing Q8 Petrol’s global energy trading operations,
                   refinery relationships, high-volume physical allocations and
                   international expansion across the Middle East, Asia and
                   global markets.
                 </p>
-                <div class="leader-meta">
-                  <span>Portfolio</span
-                  ><strong>Commercial &amp; Energy Strategy</strong>
-                </div>
-                <div class="leader-meta">
-                  <span>Experience</span
-                  ><strong>Retired banker · 32 years · GCC</strong>
-                </div>
+                <dl>
+                  <div>
+                    <dt>Portfolio</dt>
+                    <dd>Commercial & Energy Strategy</dd>
+                  </div>
+                  <div>
+                    <dt>Experience</dt>
+                    <dd>
+                      Retired banker with 32 years of experience across GCC
+                      countries.
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </article>
 
-            <article class="leader-card reveal">
-              <div class="leader-avatar avatar-two">DW</div>
-              <div class="leader-body">
-                <span class="leader-role">DIRECTOR</span>
+            <article class="leader-card" data-reveal data-reveal-delay="80">
+              <div class="leader-card__portrait">
+                <div class="leader-card__role">Director</div>
+              </div>
+              <div class="leader-card__body">
+                <p class="leader-card__index">02</p>
                 <h3>Dushan Wickramasinghe</h3>
-                <p>
+                <p class="leader-card__summary">
                   Leading corporate governance, international legal compliance,
                   KYC/AML risk management and banking structures to support
                   secure, compliant and transparent transactions.
                 </p>
-                <div class="leader-meta">
-                  <span>Portfolio</span
-                  ><strong
-                    >Corporate Governance &amp; Legal / Commercial &amp; Energy
-                    Strategy</strong
-                  >
-                </div>
-                <div class="leader-meta">
-                  <span>Experience</span
-                  ><strong>Aviation Procurement Consultant · 30 years</strong>
-                </div>
+                <dl>
+                  <div>
+                    <dt>Portfolio</dt>
+                    <dd>
+                      Corporate Governance & Legal / Commercial & Energy
+                      Strategy
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Experience</dt>
+                    <dd>
+                      Aviation Procurement Consultant with 30 years of
+                      experience.
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </article>
 
-            <article class="leader-card reveal">
-              <div class="leader-avatar avatar-two">ES</div>
-              <div class="leader-body">
-                <span class="leader-role">DIRECTOR</span>
+            <article class="leader-card" data-reveal data-reveal-delay="160">
+              <div class="leader-card__portrait">
+                <div class="leader-card__role">Director</div>
+              </div>
+              <div class="leader-card__body">
+                <p class="leader-card__index">03</p>
                 <h3>Eisha Shauna</h3>
-                <p>
+                <p class="leader-card__summary">
                   Supporting Q8 Petrol’s corporate compliance and legal
-                  framework across international commercial operations,
-                  regulatory requirements, and cross-border transactions.
+                  governance framework across international commodity
+                  transactions, documentation and counterparty processes.
                 </p>
-                <div class="leader-meta">
-                  <span>Portfolio</span
-                  ><strong>Corporate Compliance &amp; Legal</strong>
-                </div>
-                <div class="leader-meta">
-                  <span>Experience</span
-                  ><strong>International commercial operations</strong>
-                </div>
+                <dl>
+                  <div>
+                    <dt>Portfolio</dt>
+                    <dd>Corporate Compliance & Legal</dd>
+                  </div>
+                  <div>
+                    <dt>Experience</dt>
+                    <dd>
+                      Professional profile details can be added when final
+                      biography is supplied.
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT / CTA -->
-      <section class="contact-cta section-dark" id="contact">
-        <div class="cta-glow"></div>
-        <div class="container cta-inner reveal">
-          <span class="section-kicker">CONNECT</span>
-          <h2>Move the next<br /><span>commodity flow.</span></h2>
-          <p>
-            For qualified counterparties, mandates and institutional trade
-            enquiries, connect with the Q8 Petrol team.
-          </p>
-          <a href="mailto:trade@q8petrol.com" class="btn btn-primary btn-large"
-            >Start a Trade Conversation <span>↗</span></a
-          >
+      <section class="trade-process">
+        <div class="shell">
+          <div class="trade-process__heading" data-reveal>
+            <p class="eyebrow eyebrow--light">Execution Framework</p>
+            <h2>Evidence First. Structured Always.</h2>
+          </div>
+
+          <div class="process-grid">
+            <article data-reveal>
+              <span>01</span>
+              <h3>Qualification</h3>
+              <p>
+                Buyer, seller, mandate and commercial authority are screened
+                before progressing.
+              </p>
+            </article>
+            <article data-reveal data-reveal-delay="60">
+              <span>02</span>
+              <h3>Alignment</h3>
+              <p>
+                Product, volume, incoterms, destination, procedures and
+                timelines are aligned.
+              </p>
+            </article>
+            <article data-reveal data-reveal-delay="120">
+              <span>03</span>
+              <h3>Documentation</h3>
+              <p>
+                Commercial and compliance documentation is coordinated against
+                transaction terms.
+              </p>
+            </article>
+            <article data-reveal data-reveal-delay="180">
+              <span>04</span>
+              <h3>Execution</h3>
+              <p>
+                Inspection, logistics, port and delivery milestones are managed
+                through completion.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="shell">
+          <div class="contact-panel" data-reveal>
+            <div class="contact-panel__copy">
+              <p class="eyebrow">Trade Enquiries</p>
+              <h2>Discuss a Qualified Supply or Procurement Requirement.</h2>
+              <p>
+                Share your commodity, volume, incoterm, loading or destination
+                port and commercial position. Our team can assess alignment
+                before formal transaction procedures begin.
+              </p>
+              <div class="contact-panel__actions">
+                <a class="button button--primary" href="tel:+96565951820"
+                  >Middle East Desk</a
+                >
+                <a class="button button--outline" href="tel:+94779277760"
+                  >Sri Lanka Office</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-panel__meta">
+              <div>
+                <small>Middle East</small>
+                <a href="tel:+96565951820">+965 6595 1820</a>
+              </div>
+              <div>
+                <small>Sri Lanka</small>
+                <a href="tel:+94779277760">+94 77 927 7760</a>
+              </div>
+              <div>
+                <small>Operating model</small>
+                <p>Direct mandate & trading facilitation</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#home" aria-label="Q8 Petrol home">
-            <span class="brand-mark">
-              <img src="assets/logo.png" alt="Q8 Petrol" />
+      <div class="shell">
+        <div class="site-footer__top">
+          <a
+            class="brand brand--footer"
+            href="#home"
+            aria-label="Q8 Petrol home"
+          >
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path
+                  d="M8 24c0-8.837 7.163-16 16-16 5.492 0 10.338 2.768 13.22 6.985"
+                />
+                <path
+                  d="M40 24c0 8.837-7.163 16-16 16-5.492 0-10.338-2.768-13.22-6.985"
+                />
+                <path
+                  d="M17.2 18.7h10.7c3.6 0 6.5 2.7 6.5 6.1 0 3.4-2.9 6.1-6.5 6.1H17.2"
+                />
+                <path d="M15.2 16.5v15" />
+              </svg>
             </span>
-
-            <span class="brand-copy">
-              <strong>Q8 PETROL</strong>
-              <small>LANKA</small>
+            <span class="brand__text">
+              <strong>Q8 Petrol</strong>
+              <small>Lanka</small>
             </span>
           </a>
+
           <p>
-            Global energy flows. Commodity trade. Structured with precision.
+            Powering global energy flows and commodity trade through disciplined
+            execution.
           </p>
         </div>
-        <div class="footer-links">
-          <a href="#profile">Profile</a>
-          <a href="#trading">Trading Categories</a>
-          <a href="#hubs">Global Hubs</a>
-          <a href="#leadership">Leadership</a>
+
+        <div class="site-footer__grid">
+          <div>
+            <small>Navigate</small>
+            <a href="#profile">Profile</a>
+            <a href="#trading">Trading</a>
+            <a href="#hubs">Global Hubs</a>
+            <a href="#leadership">Leadership</a>
+          </div>
+          <div>
+            <small>Trade</small>
+            <a href="#trading">Selling</a>
+            <a href="#trading">Buying</a>
+            <a href="#contact">Trade Enquiry</a>
+          </div>
+          <div>
+            <small>Legal</small>
+            <button type="button" data-open-cookie-settings>
+              Privacy & Cookie Settings
+            </button>
+          </div>
         </div>
-        <div class="footer-contact">
-          <span>DIRECT TRADE LINES</span>
-          <a href="tel:+96565951820">+965 6595 1820</a>
-          <a href="tel:+94779277760">+94 7792 77760</a>
+
+        <div class="site-footer__bottom">
+          <p>
+            © <span data-current-year></span> Q8 Petrol (Lanka). All rights
+            reserved.
+          </p>
+          <p>Institutional energy & commodity trade facilitation.</p>
         </div>
-      </div>
-      <div class="container footer-bottom">
-        <span
-          >© <span id="year"></span> Q8 Petrol (Lanka). All rights
-          reserved.</span
-        ><span
-          >Design Concept by
-          <a href="https://www.genytechnologies.com/" target="_blank"
-            >GenY Tech</a
-          ></span
-        >
-        <a href="#top">Back to top ↑</a>
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <div class="cookie-banner" data-cookie-banner hidden>
+      <div class="cookie-banner__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3a9 9 0 1 0 9 9 5 5 0 0 1-5-5 5 5 0 0 1-4-4Z" />
+          <circle cx="8.5" cy="10" r="1" />
+          <circle cx="11" cy="15" r="1" />
+          <circle cx="6.5" cy="15.5" r=".8" />
+        </svg>
+      </div>
+
+      <div class="cookie-banner__copy">
+        <strong>Your Privacy Matters to Us</strong>
+        <p>
+          This website stores essential preferences locally and can support
+          optional analytics only with your consent. You can accept, reject or
+          manage non-essential categories at any time.
+        </p>
+      </div>
+
+      <div class="cookie-banner__actions">
+        <button
+          class="button button--outline button--small"
+          type="button"
+          data-cookie-manage
+        >
+          Manage
+        </button>
+        <button
+          class="button button--ghost button--small"
+          type="button"
+          data-cookie-reject
+        >
+          Reject
+        </button>
+        <button
+          class="button button--primary button--small"
+          type="button"
+          data-cookie-accept
+        >
+          Accept All
+        </button>
+      </div>
+    </div>
+
+    <div class="privacy-modal" data-privacy-modal hidden>
+      <div class="privacy-modal__backdrop" data-close-cookie-settings></div>
+      <section
+        class="privacy-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacy-title"
+        tabindex="-1"
+      >
+        <div class="privacy-modal__header">
+          <div>
+            <p class="eyebrow">Privacy Preferences</p>
+            <h2 id="privacy-title">Your Privacy Matters to Us</h2>
+          </div>
+          <button
+            class="icon-button"
+            type="button"
+            aria-label="Close privacy settings"
+            data-close-cookie-settings
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <p class="privacy-modal__intro">
+          Choose which optional technologies you allow. Essential storage is
+          required for core preferences and cannot be disabled.
+        </p>
+
+        <div class="preference-list">
+          <div class="preference-row">
+            <div>
+              <strong>Essential</strong>
+              <p>
+                Required for privacy preferences, accessibility and fundamental
+                site behaviour.
+              </p>
+            </div>
+            <span class="preference-status">Always on</span>
+          </div>
+
+          <label class="preference-row" for="analytics-consent">
+            <div>
+              <strong>Analytics</strong>
+              <p>
+                Allows privacy-conscious measurement tools to understand site
+                usage and performance.
+              </p>
+            </div>
+            <span class="toggle">
+              <input
+                type="checkbox"
+                id="analytics-consent"
+                data-consent-analytics
+              />
+              <span aria-hidden="true"></span>
+            </span>
+          </label>
+
+          <label class="preference-row" for="marketing-consent">
+            <div>
+              <strong>Marketing</strong>
+              <p>
+                Allows future advertising or campaign measurement technologies
+                if you choose to use them.
+              </p>
+            </div>
+            <span class="toggle">
+              <input
+                type="checkbox"
+                id="marketing-consent"
+                data-consent-marketing
+              />
+              <span aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="privacy-modal__actions">
+          <button
+            class="button button--outline"
+            type="button"
+            data-cookie-reject
+          >
+            Reject Optional
+          </button>
+          <button class="button button--primary" type="button" data-cookie-save>
+            Save Preferences
+          </button>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
