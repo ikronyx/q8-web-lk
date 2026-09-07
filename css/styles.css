@@ -217,7 +217,16 @@ button {
   display: block;
 
   width: auto;
-  height: 42px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.brand__logo_mid {
+  display: block;
+
+  width: auto;
+  height: 52px;
 
   object-fit: contain;
 }
@@ -225,7 +234,11 @@ button {
 /* Slightly larger on bigger screens */
 @media (min-width: 720px) {
   .brand__logo {
-    height: 46px;
+    height: 58px;
+  }
+
+  .brand__logo_mid {
+    height: 108px;
   }
 }
 
@@ -382,9 +395,9 @@ button {
   gap: 9px;
   margin: 0 0 18px;
   color: var(--green);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -972,7 +985,7 @@ button {
   aspect-ratio: 1;
   place-items: center;
   border-radius: 50%;
-  background: var(--green);
+  /* background: var(--green); */
   color: var(--white);
   box-shadow: 0 22px 50px rgba(5, 120, 60, 0.25);
 }
@@ -1614,7 +1627,7 @@ button {
 
 .leadership-grid {
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
 .leader-card {
@@ -1622,44 +1635,82 @@ button {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--white);
+
+  box-shadow: 0 10px 30px rgba(8, 37, 22, 0.045);
+
   transition:
     transform 0.35s var(--ease),
+    border-color 0.35s ease,
     box-shadow 0.35s ease;
 }
 
 .leader-card:hover {
   transform: translateY(-5px);
+  border-color: rgba(5, 120, 60, 0.18);
   box-shadow: var(--shadow-md);
 }
 
 .leader-card__portrait {
   position: relative;
-  min-height: 60px;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
   overflow: hidden;
+
+  background:
+    linear-gradient(145deg, rgba(5, 120, 60, 0.08), rgba(5, 120, 60, 0.02)),
+    var(--soft);
 }
 
 .leader-card__portrait::before,
 .leader-card__portrait::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(5, 120, 60, 0.12);
-  border-radius: 50%;
+  display: none;
 }
 
-.leader-card__portrait::before {
+/* .leader-card__portrait::before {
   width: 280px;
   aspect-ratio: 1;
   top: 34px;
   left: 50%;
   transform: translateX(-50%);
-}
+} */
 
 .leader-card__portrait::after {
-  width: 370px;
-  aspect-ratio: 1;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: block;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(2, 2, 2, 0) 55%,
+    rgba(2, 2, 2, 0.08) 75%,
+    rgba(2, 2, 2, 0.36) 100%
+  );
+}
+
+.leader-card__portrait > img {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /*
+    Keeps faces/head area visible when portrait photos
+    have additional space toward the bottom.
+  */
+  object-position: center 18%;
 }
 
 .portrait-placeholder {
@@ -1704,56 +1755,80 @@ button {
 }
 
 .leader-card__body {
-  padding: 24px;
+  padding: 26px;
 }
 
 .leader-card__index {
   margin: 0 0 10px;
+
   color: var(--red);
-  font-size: 0.65rem;
+
+  font-size: 0.66rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+
+  letter-spacing: 0.1em;
 }
 
 .leader-card h3 {
   margin: 0;
+
+  color: var(--green-deep);
+
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  letter-spacing: -0.04em;
+
+  font-size: clamp(1.35rem, 4vw, 1.65rem);
+  font-weight: 700;
+
+  letter-spacing: -0.045em;
+  line-height: 1.2;
 }
 
 .leader-card__summary {
-  margin: 14px 0 22px;
+  margin: 16px 0 24px;
+
   color: var(--muted);
-  font-size: 0.84rem;
+
+  font-size: 0.87rem;
   line-height: 1.75;
 }
 
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
 .leader-card dl {
   display: grid;
+
   margin: 0;
 }
 
 .leader-card dl > div {
   display: grid;
-  gap: 6px;
-  padding: 14px 0;
+  gap: 7px;
+
+  padding: 15px 0;
+
   border-top: 1px solid var(--line);
 }
 
 .leader-card dt {
   color: var(--muted-2);
-  font-size: 0.62rem;
+
+  font-size: 0.63rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+
+  letter-spacing: 0.09em;
+
   text-transform: uppercase;
 }
 
 .leader-card dd {
   margin: 0;
+
   color: #36413b;
-  font-size: 0.78rem;
-  line-height: 1.6;
+
+  font-size: 0.8rem;
+  line-height: 1.65;
 }
 
 /* Process */
@@ -1842,6 +1917,61 @@ button {
 
 .contact-section {
   padding-block: 72px;
+}
+
+.contact-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.9) 48%,
+      rgba(232, 244, 238, 0.92) 100%
+    ),
+    url("../assets/images/9-contact-map.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  top: 8%;
+  right: -180px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(5, 120, 60, 0.07) 0%,
+    rgba(5, 120, 60, 0.025) 45%,
+    transparent 72%
+  );
+
+  pointer-events: none;
+}
+
+/* Keep form content safely above background */
+.contact-section .shell {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-panel {
@@ -2562,7 +2692,11 @@ button {
   }
 
   .leadership-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leader-card__body {
+    padding: 28px;
   }
 
   .process-grid {
@@ -2634,8 +2768,8 @@ button {
   .desktop-nav a {
     position: relative;
     padding: 31px 0;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.82rem;
+    font-weight: 800;
     letter-spacing: -0.01em;
     opacity: 0.72;
     transition: opacity 0.2s ease;
@@ -2739,7 +2873,23 @@ button {
   }
 
   .leadership-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .leader-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leader-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .leader-card dl {
+    margin-top: auto;
   }
 
   .process-grid {
@@ -2799,8 +2949,22 @@ button {
     padding: 34px;
   }
 
+  .leadership-grid {
+    gap: 22px;
+  }
+
   .leader-card__body {
-    padding: 28px;
+    padding: 30px;
+  }
+
+  .leader-card__role {
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+
+    padding: 11px 16px;
+
+    font-size: 0.82rem;
   }
 
   .process-grid article {
@@ -3166,5 +3330,562 @@ button {
   */
   .hero__media video {
     display: block;
+  }
+}
+
+/* =========================================================
+   Q8 WEB EDITS — 2026-09 CLIENT REVISION
+   ========================================================= */
+
+/* Logo visibility */
+.site-header .brand {
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.site-header.is-scrolled .brand,
+.site-header.menu-visible .brand {
+  border-color: var(--line);
+  box-shadow: 0 7px 22px rgba(8, 32, 19, 0.07);
+}
+
+.hero .eyebrow {
+  margin-bottom: 22px;
+  font-size: clamp(0.82rem, 1.25vw, 0.98rem);
+  letter-spacing: 0.12em;
+}
+
+.section-heading .eyebrow {
+  font-size: clamp(0.86rem, 1.3vw, 1rem);
+  letter-spacing: 0.12em;
+}
+
+/* Products */
+.products-panel-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 24px 26px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--white), var(--soft));
+}
+
+.products-panel-heading > span {
+  color: var(--red);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.products-panel-heading h3 {
+  margin: 0;
+  color: var(--green-deep);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.7rem);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.category-block__heading p {
+  font-size: clamp(0.82rem, 1.35vw, 0.98rem);
+  letter-spacing: 0.08em;
+}
+
+.category-index {
+  font-size: 0.78rem;
+}
+
+.commodity-card__top > span {
+  min-width: 62px;
+  min-height: 54px;
+  padding: 8px 10px;
+  font-size: clamp(0.92rem, 1.3vw, 1.08rem);
+}
+
+.commodity-card h4 {
+  color: var(--green);
+  font-size: clamp(1.25rem, 2vw, 1.48rem);
+}
+
+.commodity-card__meta {
+  justify-content: flex-start;
+}
+
+/* Leadership portraits */
+.leader-card__portrait {
+  min-height: 270px;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(5, 120, 60, 0.11), transparent 30%),
+    linear-gradient(145deg, #eef5f1, #dde8e2);
+}
+
+.leader-card__portrait img {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.leader-card__initials {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  display: grid;
+  place-items: center;
+
+  color: rgba(5, 120, 60, 0.18);
+
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 800;
+
+  letter-spacing: -0.08em;
+}
+
+.leader-card__role {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 4;
+
+  width: fit-content;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: var(--green-deep);
+
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  letter-spacing: -0.015em;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Global hubs */
+.hub-map {
+  min-height: 420px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.76),
+      rgba(255, 255, 255, 0.44)
+    ),
+    url("../assets/images/9-contact-map.jpg") center / cover no-repeat,
+    linear-gradient(140deg, #f9fbfa, #edf3ef);
+}
+
+.map-grid {
+  opacity: 0.2;
+}
+
+.hub-card__top {
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.hub-card .eyebrow {
+  margin-bottom: 9px;
+  color: var(--green-deep);
+  font-family: var(--font-display);
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.hub-card .eyebrow::before {
+  display: none;
+}
+
+.hub-card h3 {
+  color: var(--green);
+  font-size: clamp(0.96rem, 1.6vw, 1.16rem);
+  letter-spacing: -0.02em;
+}
+
+.hub-contact {
+  gap: 4px;
+}
+
+.hub-contact__email {
+  margin-top: 5px;
+  color: var(--green-deep) !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700;
+}
+
+/* =========================================================
+   EXPANDED TRADE INQUIRY FORM
+   Uses existing Q8 Petrol color system.
+   ========================================================= */
+
+.contact-panel {
+  align-items: start;
+}
+
+.contact-panel__copy > .contact-form__intro {
+  max-width: 680px;
+  margin: 18px 0 30px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.trade-inquiry-form {
+  display: grid;
+  gap: 0;
+  margin-top: 34px;
+}
+
+/* =========================================================
+   FORM SECTIONS
+   ========================================================= */
+
+.trade-form-section {
+  min-width: 0;
+  margin: 0;
+  padding: 30px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.trade-form-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.trade-form-heading {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  padding: 0;
+
+  color: var(--green-deep);
+
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.trade-form-heading__number {
+  display: inline-grid;
+  min-width: 36px;
+  height: 27px;
+  place-items: center;
+
+  padding-inline: 7px;
+
+  border: 1px solid var(--green);
+  border-radius: 999px;
+
+  color: var(--green);
+
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.contact-form__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 3fr));
+  column-gap: 16px;
+  row-gap: 18px;
+}
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+
+.contact-form__field {
+  min-width: 0;
+}
+
+.contact-form__field > span,
+.contact-form__label {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.contact-form__required {
+  display: inline !important;
+  margin-left: 3px;
+  color: var(--red) !important;
+}
+
+/* =========================================================
+   INPUTS / SELECTS / TEXTAREA
+   ========================================================= */
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-width: 0;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.contact-form input,
+.contact-form select {
+  width: 100%;
+  min-height: 46px;
+  padding-inline: 13px;
+}
+
+.contact-form textarea {
+  /* min-height: 128px;s */
+  padding: 14px;
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted-2);
+}
+
+.contact-form__message {
+  width: 100%;
+}
+
+.contact-form textarea {
+  width: 100%;
+  min-height: 110px;
+}
+
+/* Select arrow */
+
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding-right: 42px;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 13px) 50%;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+}
+
+/* Focus */
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+
+  border-color: var(--green);
+
+  background-color: var(--white);
+
+  box-shadow: 0 0 0 3px rgba(5, 120, 60, 0.1);
+}
+
+/* =========================================================
+   QUANTITY + UNIT
+   ========================================================= */
+
+.contact-form__quantity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 82px;
+  gap: 7px;
+}
+
+/* =========================================================
+   CONFIRMATION CHECKBOXES
+   ========================================================= */
+
+.contact-form__confirmations {
+  margin-top: 2px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-form__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 17px 0;
+
+  cursor: pointer;
+}
+
+.contact-form__checkbox + .contact-form__checkbox {
+  border-top: 1px solid var(--line);
+}
+
+.contact-form__checkbox input[type="checkbox"] {
+  flex: 0 0 auto;
+
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  min-height: 18px;
+
+  margin: 2px 0 0;
+  padding: 0;
+
+  accent-color: var(--green);
+
+  cursor: pointer;
+}
+
+.contact-form__checkbox > span {
+  color: var(--muted);
+
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   SUBMIT AREA
+   ========================================================= */
+
+.contact-form__submit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.contact-form__submit .button {
+  width: fit-content;
+}
+
+.contact-form__note {
+  margin: 0;
+
+  color: var(--muted-2);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CONTACT META
+   Prevent the right panel from stretching awkwardly
+   next to the longer form.
+   ========================================================= */
+
+@media (min-width: 980px) {
+  .contact-panel {
+    align-items: start;
+  }
+
+  .contact-panel__meta {
+    position: sticky;
+    top: calc(var(--header-height) + 28px);
+  }
+}
+@media (max-width: 1050px) {
+  .contact-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 620px) {
+  /* .contact-form__grid {
+    grid-template-columns: 1fr;
+  } */
+
+  .contact-form__submit {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 619px) {
+  .trade-form-section {
+    padding-block: 26px;
+  }
+
+  .trade-form-heading {
+    margin-bottom: 18px;
+    font-size: 0.96rem;
+  }
+
+  .contact-form__quantity {
+    grid-template-columns: minmax(0, 1fr) 90px;
+  }
+
+  .contact-form input,
+  .contact-form select {
+    min-height: 52px;
+  }
+
+  .contact-form__checkbox {
+    gap: 10px;
+  }
+}
+
+@media (min-width: 980px) {
+  .hub-map {
+    min-height: 500px;
   }
 }
