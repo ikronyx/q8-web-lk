@@ -674,19 +674,19 @@ button {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background:
+  /* background:
     linear-gradient(
       180deg,
-      rgba(2, 18, 10, 0.48) 0%,
-      rgba(2, 15, 8, 0.28) 36%,
-      rgba(2, 14, 8, 0.74) 100%
+      rgba(215, 240, 227, 0.48) 0%,
+      rgba(241, 248, 244, 0.28) 36%,
+      rgba(250, 255, 252, 0.74) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(1, 14, 7, 0.74) 0%,
-      rgba(2, 20, 11, 0.42) 54%,
-      rgba(3, 20, 12, 0.12) 100%
-    );
+      rgba(240, 250, 245, 0.74) 0%,
+      rgba(162, 245, 203, 0.42) 54%,
+      rgba(248, 248, 248, 0.12) 100%
+    ); */
 }
 
 .hero__grain {
