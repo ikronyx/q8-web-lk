@@ -8,6 +8,12 @@
   const revealElements = document.querySelectorAll("[data-reveal]");
   const yearNode = document.querySelector("[data-current-year]");
 
+  document
+    .querySelector("#leadership")
+    ?.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+    });
+
   const COOKIE_STORAGE_KEY = "q8_privacy_preferences_v1";
 
   if (yearNode) {
@@ -22,7 +28,8 @@
   const updateProgress = () => {
     if (!scrollProgress) return;
 
-    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const documentHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     const progress = documentHeight > 0 ? window.scrollY / documentHeight : 0;
     scrollProgress.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
   };
@@ -125,7 +132,9 @@
   const openSettingsButtons = document.querySelectorAll(
     "[data-cookie-manage], [data-open-cookie-settings]",
   );
-  const closeSettingsButtons = document.querySelectorAll("[data-close-cookie-settings]");
+  const closeSettingsButtons = document.querySelectorAll(
+    "[data-close-cookie-settings]",
+  );
   const acceptButtons = document.querySelectorAll("[data-cookie-accept]");
   const rejectButtons = document.querySelectorAll("[data-cookie-reject]");
   const saveButton = document.querySelector("[data-cookie-save]");
@@ -155,8 +164,12 @@
       IMPORTANT:
       Keep optional analytics / marketing scripts disabled until consent is true.
     */
-    document.documentElement.dataset.analyticsConsent = preferences.analytics ? "granted" : "denied";
-    document.documentElement.dataset.marketingConsent = preferences.marketing ? "granted" : "denied";
+    document.documentElement.dataset.analyticsConsent = preferences.analytics
+      ? "granted"
+      : "denied";
+    document.documentElement.dataset.marketingConsent = preferences.marketing
+      ? "granted"
+      : "denied";
   };
 
   const savePreferences = (preferences) => {
@@ -178,8 +191,10 @@
     if (!privacyModal) return;
 
     const currentPreferences = readPreferences();
-    if (analyticsConsent) analyticsConsent.checked = Boolean(currentPreferences?.analytics);
-    if (marketingConsent) marketingConsent.checked = Boolean(currentPreferences?.marketing);
+    if (analyticsConsent)
+      analyticsConsent.checked = Boolean(currentPreferences?.analytics);
+    if (marketingConsent)
+      marketingConsent.checked = Boolean(currentPreferences?.marketing);
 
     lastFocusedElement = document.activeElement;
     privacyModal.hidden = false;

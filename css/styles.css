@@ -677,16 +677,17 @@ button {
   /* background:
     linear-gradient(
       180deg,
-      rgba(215, 240, 227, 0.48) 0%,
-      rgba(241, 248, 244, 0.28) 36%,
-      rgba(250, 255, 252, 0.74) 100%
+      rgba(11, 49, 30, 0.48) 0%,
+      rgba(10, 73, 40, 0.28) 36%,
+      rgba(2, 14, 8, 0.74) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(240, 250, 245, 0.74) 0%,
-      rgba(162, 245, 203, 0.42) 54%,
-      rgba(248, 248, 248, 0.12) 100%
+      rgba(16, 73, 43, 0.74) 0%,
+      rgba(17, 141, 79, 0.42) 54%,
+      rgba(3, 20, 12, 0.12) 100%
     ); */
+  background-color: rgba(26, 87, 56, 0.52);
 }
 
 .hero__grain {
@@ -1439,12 +1440,12 @@ button {
 }
 
 .map-route__base {
-  stroke: rgba(5, 120, 60, 0.14);
+  stroke: rgba(241, 22, 22, 0.14);
   stroke-width: 3;
 }
 
 .map-route__flow {
-  stroke: var(--green);
+  stroke: var(--red-dark);
   stroke-width: 2;
   stroke-dasharray: 4 14;
   animation: route-flow 3s linear infinite;
@@ -1496,13 +1497,13 @@ button {
 }
 
 .map-point--kuwait {
-  top: 27%;
-  left: 17%;
+  top: 35%;
+  left: 39%;
 }
 
 .map-point--sri-lanka {
-  right: 17%;
-  bottom: 23%;
+  right: 35.5%;
+  bottom: 14%;
 }
 
 .hub-map__label {
@@ -3431,6 +3432,11 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
 }
 
 .leader-card__initials {
