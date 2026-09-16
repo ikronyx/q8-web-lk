@@ -687,7 +687,7 @@ button {
       rgba(17, 141, 79, 0.42) 54%,
       rgba(3, 20, 12, 0.12) 100%
     ); */
-  background-color: rgba(26, 87, 56, 0.52);
+  background-color: rgba(26, 87, 56, 0.5);
 }
 
 .hero__grain {
@@ -2685,7 +2685,7 @@ button {
   }
 
   .hub-map {
-    min-height: 440px;
+    height: 440px;
   }
 
   .hub-grid {
@@ -3488,13 +3488,9 @@ button {
 
 /* Global hubs */
 .hub-map {
-  min-height: 420px;
+  height: 750px;
   background:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.76),
-      rgba(255, 255, 255, 0.44)
-    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
     url("../assets/images/9-contact-map.jpg") center / cover no-repeat,
     linear-gradient(140deg, #f9fbfa, #edf3ef);
 }
@@ -3887,6 +3883,9 @@ button {
 
   .contact-form__checkbox {
     gap: 10px;
+  }
+  .hub-map {
+    height: 200px;
   }
 }
 
